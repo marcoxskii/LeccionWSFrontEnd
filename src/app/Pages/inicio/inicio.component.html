@@ -1,8 +1,7 @@
-
 <div class="main-container">
     <div class="form-section">
-        <input type="text" placeholder="Cédula" [(ngModel)]="cliente.cedula" name="cedula">
-        <button (click)="obtenerClientes()">Enviar</button>
+        <input type="text" placeholder="Cédula" [(ngModel)]="searchTerm" name="cedula">
+        <button (click)="buscarCedula()">Buscar</button>
     </div>
 </div>
 
@@ -12,15 +11,16 @@
             <tr>
                 <th>Cédula</th>
                 <th>Nombre</th>
-                <th>Dirección</th>
-                <th>Acciones</th>
+                <th>Consumo</th>
+                <th>Deuda</th>
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let cliente of clientes">
+            <tr *ngFor="let cliente of clientesFiltrados">
                 <td>{{ cliente.cedula }}</td>
-                <td>{{ cliente.consumo }}</td>
-                <td>{{ cliente.deuda }}</td>
+                <td>{{ cliente.nombre }}</td>
+                <td>{{ cliente.consumo }} KWH</td>
+                <td>{{ cliente.deuda }} $</td>
             </tr>
         </tbody>
     </table>
